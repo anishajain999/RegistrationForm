@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Registration Form</h1>
-        <form action="#"  name="formValid">
+        <form action="#" onSubmit="submitForm()" name="formValid">
             <div class="f-grp">
                 <label for="fName">Enter First Name:</label>
                 <input type="text" name="fName" id="fName" onclick="checkForm()">
@@ -33,7 +33,7 @@
             </div>
             <div class="f-grp">
                 <label for="pNumber">Enter Number:</label>
-                <input type="text" name="pNumber" id="pNumber" onclick="checkForm()">
+                <input type="text" name="pNumber" id="pNumber" onclick="checkPhone()">
                 <span id="p_Number"></span>
             </div>
             <div class="f-grp">
@@ -41,7 +41,7 @@
                 <input type="text" name="address" id="address" onclick="checkForm()">
                 <span id="add"></span>
             </div>
-            <button type="submit" onclick="submitForm()">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
     <script src="/registration_form/assets/js/script.js"></script>

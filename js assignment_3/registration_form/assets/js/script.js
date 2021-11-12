@@ -4,13 +4,12 @@ function checkForm(){
     let regex_name = /^[a-zA-Z]+$/;
     let regex_age = /^[0-9]{0,3}$/;
     let regex_email = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
-    let regex_phone = /^[\d]{10}$/gmi;
+    
 
     let fName = document.getElementById("fName").value;
     let lName = document.getElementById("lName").value;
     let age = document.getElementById("age").value;
     let email = document.getElementById("email").value;
-    let pNumber = document.getElementById("pNumber").value;
     let address = document.getElementById("address").value;
     //console.log(fName, lName, age, pNumber, address);
 
@@ -99,6 +98,29 @@ function checkForm(){
         //return true;
     }
 
+    
+
+    
+    if(address == "" || address == null){
+        //alert("Address is mandatory");
+        document.getElementById("address").style.border="3px solid red";
+
+        document.getElementById("add").innerHTML = `<p>Address is mandatory</p>`
+        //return false;
+    }
+
+    else if (address != "" || address != null){
+        
+        document.getElementById("address").style.border="3px solid green";
+        document.getElementById("add").innerHTML = `<p style="none"></p>`;
+        
+         //return true
+    }
+}
+
+function checkPhone(){
+    let regex_phone = /^[\d]{10}$/;
+    let pNumber = document.getElementById("pNumber").value;
     if(pNumber == "" || pNumber == null){
         document.getElementById("pNumber").style.border="3px solid red";
         //alert("Phone Number is mandatory");
@@ -119,33 +141,21 @@ function checkForm(){
         //return true;
     }
 
-    
-    if(address == "" || address == null){
-        //alert("Address is mandatory");
-        document.getElementById("address").style.border="3px solid red";
-
-        document.getElementById("add").innerHTML = `<p>Address is mandatory</p>`
-        //return false;
-    }
-
-    else if (address != "" || address != null){
-        
-        document.getElementById("address").style.border="3px solid green";
-        document.getElementById("add").innerHTML = `<p style="none"></p>`;
-        
-         //return true
-    }
 }
+
 function submitForm(){
-    if(input.value.lenght== 0){
-        alert("Not Valid")
-        
+    let v = document.getElementsByTagName("input").value;
+    //console.log(v)
+    if(v == undefined){
+        alert("Not Valid \nPlease Fill the form")
     }
     else{
+        
         alert("Form is Submitted")
         setTimeout(function(){
             window.location.reload(1);
          }, 1000);
+        
     }
     
 }
